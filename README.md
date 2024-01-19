@@ -14,33 +14,39 @@ python simplest_pruned_mlp.py
 
 By default, it is going to generate a `float16` model, i.e. input, weights, and activations are 16-bit floating point numbers. Two types of activation functions are available (Relu and Tanh). The default is Relu.
 
+<b>TF output </b>
+```
 expected_output = nb.model(x)
 print(expected_output)
-
-# generate the code
+```
+<b>generate the code</b>
+```
 assert type(x) == type(np.array([]))
 nb.generate(x, half_precision=False, use_tanh=False)
-
-# compile the example code
+```
+<b>compile the example code</b>
+```
 nb.compile()
-
-# run the example code
+```
+<b>run the example code</b>
+```
 nb._execute('../out_Lenet300_Fashion_p3/main')
 print('TF output:')
 print(expected_output.numpy())
-
+``` 
 Expected output:
-
 ```
-[...]
+Running test program for pruned MLP...
 
 C output:
+-5.244376 -8.484502 -3.668722 -4.425672 -4.341721 5.066456 -2.277234 9.820605 3.035655 11.868966 
 
-4.295325 13.975469 11.231790 -19.626797 -31.221189 -6.856307 17.750645 -4.327031 -6.929174 1.652373 
+Test program for pruned MLP ended!
+
 
 TF output:
-[[  4.293168   13.977932   11.239425  -19.631868  -31.226746   -6.859765
-   17.746508   -4.328249   -6.928644    1.6512883]]
+[[-5.244375  -8.484501  -3.6687226 -4.4256706 -4.3417206  5.06646
+  -2.2772343  9.820606   3.0356545 11.868967 ]]
 ```
 
 Then, you might find the resulting C/C++ program and functions the `out` directory. The main program is `out/main.c` and might modified to capture data from external sources and (cross) compiled for different platforms.
