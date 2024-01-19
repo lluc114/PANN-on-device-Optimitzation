@@ -34,7 +34,7 @@ nb._execute('../out_Lenet300_Fashion_p3/main')
 print('TF output:')
 print(expected_output.numpy())
 ``` 
-Expected output:
+<b>Expected output:</b>
 ```
 Running test program for pruned MLP...
 
