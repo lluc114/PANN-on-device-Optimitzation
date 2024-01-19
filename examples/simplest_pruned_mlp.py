@@ -26,25 +26,9 @@ nb.check_model()
 x = test_images[:1] / 255 # shape is 1, height, width
 x = x.reshape((1,-1))
 
-# input_samples = (np.random.random_sample(10)*10000).astype(np.int16)
-# samples = test_images[input_samples]
-# samples = samples.reshape((10,28,28,1))
-# samples = samples/255
-# np.save('./fashion_10samples.npy', samples)
-
-# %%
-# x_path = MODEL_PATH + '/../x_test_10_Fashion_v2.npy'
-# samples = np.load(x_path)
-# x = samples
-
-# %% inference using the example data, this is the golden reference for the generated code
-# expected_output = nb.model(np.expand_dims(samples[6], 0))
-
-# %%
-# x = samples[:1]
+# %% nference using the example data, this is the golden reference for the generated code
 expected_output = nb.model(x)
 print(expected_output)
-# tf.nn.softmax(expected_output)
 
 # %% generate the code
 assert type(x) == type(np.array([]))
