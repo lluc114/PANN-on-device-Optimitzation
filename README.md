@@ -3,7 +3,7 @@ Python based generation of C/C++ libraries to run inference, including sparse (p
 
 ## Running an example
 
-### Example 1: `simplest_pruned_mlp.py`
+<b>Example 1: `simplest_pruned_mlp.py`</b>
 
 Change directory to the `examples` folder and run an example to check if the Keras/TensorFlow model is giving the same output:
 
